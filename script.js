@@ -107,7 +107,7 @@ document
 function openMaps() {
 
     const address =
-        "The Grand Palace, New Delhi, India";
+        "Luv Kush Vatika, Kanpur, India";
 
     const url =
         "https://www.google.com/maps/search/?api=1&query="
@@ -124,10 +124,10 @@ function openMaps() {
 
 function rsvp() {
 
-    const phoneNumber = "919999999999";
+    const phoneNumber = "918601890804";
 
     const message =
-        "Hello! I would like to confirm my attendance for the wedding of Danish & Adeena.";
+        "Hello! I would like to confirm my attendance for the wedding of Navneet & Deepali.";
 
     const url =
         "https://wa.me/"
