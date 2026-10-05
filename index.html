@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Wedding Invitation</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- MUSIC -->
+    <audio id="weddingMusic" loop>
+        <source src="music/wedding.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="musicButton" class="music-button">
+        ♫
+    </button>
+
+
+    <!-- OPENING ENVELOPE -->
+    <section id="opening" class="opening">
+
+        <div class="envelope">
+
+            <div class="floral floral-top">
+                ❧
+            </div>
+
+            <div class="envelope-inner">
+
+                <div class="monogram">
+                    D<span>&</span>A
+                </div>
+
+                <p class="open-text">
+                    Tap to open
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MAIN INVITATION -->
+    <main id="invitation" class="invitation">
+
+
+        <!-- HERO -->
+        <section class="hero reveal">
+
+            <div class="floral-corner top-left"></div>
+            <div class="floral-corner top-right"></div>
+
+            <div class="hero-content">
+
+                <p class="small-heading">
+                    Welcome to the
+                </p>
+
+                <h1>
+                    Nikkah Ceremony
+                </h1>
+
+                <p class="of">
+                    of
+                </p>
+
+                <h2>
+                    Danish
+                    <span>&</span>
+                    Adeena
+                </h2>
+
+                <div class="hero-image">
+
+                    <!-- Replace this with your couple image -->
+                    <img
+                        src="images/couple.jpg"
+                        alt="Danish and Adeena"
+                    >
+
+                </div>
+
+                <p class="scroll">
+                    Scroll down
+                    <br>
+                    <span>⌄</span>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- DATE -->
+        <section class="date-section reveal">
+
+            <p class="section-script">
+                The Date
+            </p>
+
+            <p class="instruction">
+                ✦ Scratch to reveal the date ✦
+            </p>
+
+            <div class="date-card">
+
+                <div class="date-number">
+                    10
+                </div>
+
+                <div class="date-month">
+                    DECEMBER
+                </div>
+
+                <div class="date-year">
+                    2026
+                </div>
+
+                <div class="scratch-overlay" id="scratch">
+                    <span>Scratch</span>
+                </div>
+
+            </div>
+
+            <p class="save-date">
+                Save the date
+            </p>
+
+        </section>
+
+
+        <!-- MESSAGE -->
+        <section class="message reveal">
+
+            <div class="ornament"></div>
+
+            <p class="parents">
+                DAUGHTER OF<br>
+                MR & MRS CH. FAROOQI
+            </p>
+
+            <h2>
+                Dear Friends and Family
+            </h2>
+
+            <p class="message-text">
+
+                Join us for an evening of love,
+                laughter, duas, and unforgettable
+                memories as we begin our forever.
+
+            </p>
+
+            <div class="ornament"></div>
+
+        </section>
+
+
+        <!-- TIMELINE -->
+        <section class="timeline reveal">
+
+            <p class="section-script">
+                Wedding Timeline
+            </p>
+
+            <div class="timeline-line"></div>
+
+
+            <div class="event left">
+
+                <div class="event-content">
+
+                    <span class="time">
+                        6:00 pm
+                    </span>
+
+                    <h3>
+                        Guest Arrival
+                    </h3>
+
+                    <p>
+                        Welcome Drinks
+                    </p>
+
+                </div>
+
+                <div class="event-icon">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <div class="event right">
+
+                <div class="event-icon">
+                    ❀
+                </div>
+
+                <div class="event-content">
+
+                    <span class="time">
+                        6:30 pm
+                    </span>
+
+                    <h3>
+                        Bride Entrance
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="event left">
+
+                <div class="event-content">
+
+                    <span class="time">
+                        7:00 pm
+                    </span>
+
+                    <h3>
+                        Nikkah Ceremony
+                    </h3>
+
+                </div>
+
+                <div class="event-icon">
+                    ✦
+                </div>
+
+            </div>
+
+
+            <div class="event right">
+
+                <div class="event-icon">
+                    ❀
+                </div>
+
+                <div class="event-content">
+
+                    <span class="time">
+                        8:00 pm
+                    </span>
+
+                    <h3>
+                        Dinner & Celebration
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- VENUE -->
+        <section class="venue reveal">
+
+            <p class="section-script">
+                The Venue
+            </p>
+
+            <h2>
+                The Grand Palace
+            </h2>
+
+            <p>
+                New Delhi, India
+            </p>
+
+            <button
+                class="gold-button"
+                onclick="openMaps()"
+            >
+                View Location
+            </button>
+
+        </section>
+
+
+        <!-- RSVP -->
+        <section class="rsvp reveal">
+
+            <p class="section-script">
+                We would love to see you
+            </p>
+
+            <h2>
+                RSVP
+            </h2>
+
+            <p>
+                Kindly confirm your presence
+                before 1 December 2026.
+            </p>
+
+            <button
+                class="gold-button"
+                onclick="rsvp()"
+            >
+                Confirm Attendance
+            </button>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+
+            <div class="monogram footer-monogram">
+                D<span>&</span>A
+            </div>
+
+            <p>
+                With love,
+            </p>
+
+            <h2>
+                Danish & Adeena
+            </h2>
+
+            <p class="copyright">
+                2026
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
