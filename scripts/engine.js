@@ -48,7 +48,7 @@
       storyT: "Our story", photosT: "Us, so far", swipe: "Swipe to see more",
       eventsT: "The celebrations",
       countT: "The celebration begins", units: ["Days", "Hours", "Minutes", "Seconds"],
-      countTo: (n, d) => `until the Celebration, on ${d}`,
+      countTo: (n, d) => `until the ${n}, on ${d}`,
       venueT: "Location", maps: "Open in Google Maps", mapTitle: (v) => `Map of ${v}`, showMap: "Show the map", directions: "Directions",
       travelT: "Getting there", stayT: "Where to stay",
       dressT: "Dress code", dressLede: "A colour for each function, if you'd like a hint.",
@@ -1311,6 +1311,7 @@
         ${has(data.signoff) ? `<p class="so-text" lang="${lang}">${esc(nb(pick(data.signoff)))}</p>` : ""}
         ${logoMark("so-logo")}
         <p class="so-names" lang="${lang}">${names}</p>
+        <a class="made" href="https://saath.studio" target="_blank" rel="noopener"><span lang="${lang}">${esc(u.made)}</span><img src="${ROOT}mark.svg" alt="" width="16" height="16">saath.studio</a>
       </footer>`;
     document.documentElement.style.setProperty("--arch", `url("${archMask()}")`);
     drawArch();
