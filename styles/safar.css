@@ -1,0 +1,35 @@
+/* Safar: vintage travel. Airmail red and blue on kraft and cream, a sketchbook watercolour route. */
+body.layout-safar { --sf-red: #c8323c; --sf-blue: #2b59a6; }
+/* Monsieur La Doulaise's swash capitals rise far above the name: room for them under the line before. */
+body.layout-safar .inv .name { margin-top: 0.12em; }
+
+/* ───────── The journey ───────── */
+.sf-route { position: relative; height: min(104vw, 460px); margin: 18px auto 4px; max-width: 420px; color: var(--ink-soft, var(--ink)); }
+.sf-path, .sf-fly { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.sf-path { opacity: 0.7; }
+.sf-fly { color: var(--sf-blue); filter: drop-shadow(0 2px 2px rgba(30, 30, 60, 0.25)); }
+.sf-city { position: absolute; width: 54%; margin: 0; display: grid; justify-items: center; gap: 4px; }
+.sf-city.from { left: -2%; top: 0; }
+.sf-city.to { right: -2%; bottom: 0; }
+.sf-city img { width: 100%; aspect-ratio: 1; object-fit: contain; mix-blend-mode: multiply; }
+.sf-city figcaption { font: 500 13px/1.2 var(--serif); letter-spacing: 0.24em; text-transform: uppercase; color: var(--ink); padding-inline-start: 0.24em; }
+.sf-city figcaption:lang(hi) { font: 400 16px/1.4 var(--deva); letter-spacing: 0; text-transform: none; padding: 0; }
+.sf-city.from figcaption { margin-top: -10%; }
+.sf-city.to figcaption { order: -1; margin-bottom: -6%; }
+
+/* ───────── The boarding pass ───────── */
+#rsvp.sf-pass { margin-inline: 16px; padding-top: 0; background: color-mix(in srgb, var(--paper) 70%, white); border-radius: 14px; box-shadow: 0 1px 0 var(--line), 0 14px 34px rgba(40, 30, 20, 0.12); position: relative; overflow: hidden; }
+#rsvp.sf-pass > .h { margin-top: 0; padding-top: 22px; }
+.sf-pass-head { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 0 -1px 14px; padding: 12px 18px; background: var(--sf-blue); color: #fff; font: 600 11.5px/1.3 var(--serif); letter-spacing: 0.22em; text-transform: uppercase; }
+.sf-pass-head b { font: 600 14px/1.3 var(--serif); letter-spacing: 0.08em; text-align: right; }
+.sf-pass-head:lang(hi), .sf-pass-head:lang(hi) b { font-family: var(--deva); letter-spacing: 0; text-transform: none; }
+#rsvp.sf-pass { display: flex; flex-direction: column; }
+#rsvp.sf-pass .sf-pass-head { order: -1; }
+/* The tear line, then a stub with a barcode. */
+.sf-stub { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; padding: 16px 18px 18px; border-top: 2px dashed color-mix(in srgb, var(--ink) 28%, transparent); font: italic 400 13px/1.3 var(--serif); color: var(--ink-soft, var(--ink)); }
+.sf-stub::before, .sf-stub::after { content: ""; position: absolute; top: -11px; width: 20px; height: 20px; border-radius: 50%; background: var(--paper); }
+.sf-stub::before { left: -10px; } .sf-stub::after { right: -10px; }
+.sf-stub i { flex: 0 0 46%; height: 34px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px, var(--ink) 8px 11px, transparent 11px 12px); opacity: 0.85; }
+
+/* ───────── The airmail thank-you ───────── */
+.signoff.sf-airmail { margin: 28px 16px 0; padding-inline: 22px; border: 10px solid transparent; border-image: repeating-linear-gradient(45deg, var(--sf-red) 0 12px, #fff 12px 18px, var(--sf-blue) 18px 30px, #fff 30px 36px) 10; background: color-mix(in srgb, var(--paper) 60%, white) padding-box; }
