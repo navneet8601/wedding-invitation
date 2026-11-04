@@ -17,7 +17,8 @@
   const ROOT = SAATH.root || "";
   const slug = (params.get("c") || "demo").replace(/[^a-z0-9-]/gi, "");
   // Photos and voice notes come from the website as absolute URLs; older records name files beside the couple.
-  const media = (src) => (/^(data:|blob:|https?:|\/)/.test(src) ? src : `${ROOT}couples/${slug}/${src}`);
+  // Self-hosted copy: "./images/..." paths are files beside index.html and are used as they are.
+  const media = (src) => (/^(data:|blob:|https?:|\.?\/)/.test(src) ? src : `${ROOT}couples/${slug}/${src}`);
   // The family: from the page (a family's own link, i/<slug>/<key>, resolved by the site), or ?f=.
   const familyParam = (SAATH.family || params.get("f") || "").trim().slice(0, 40);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -506,7 +507,7 @@
     // The couple's own song (kept with their photos), a track from the music library, or the design's
     // own, on a loop. "off": no music and no button.
     if (data.music === "off") $("#soundBtn").style.display = "none";
-    else $("#music").src = /^\/api\/wedding\/media\/[0-9a-f-]{36}$/.test(data.music || "") ? data.music : /^music\/[a-z0-9-]+\.mp3$/.test(data.music || "") ? ROOT + data.music : theme.music ? base + theme.music : `${ROOT}themes/theme.mp3`;
+    else $("#music").src = /^\.\//.test(data.music || "") ? data.music : /^\/api\/wedding\/media\/[0-9a-f-]{36}$/.test(data.music || "") ? data.music : /^music\/[a-z0-9-]+\.mp3$/.test(data.music || "") ? ROOT + data.music : theme.music ? base + theme.music : `${ROOT}themes/theme.mp3`;
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = p.night || p.paper || "#ebe3d5";
   }
