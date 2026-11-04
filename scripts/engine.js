@@ -1130,8 +1130,7 @@
 
   function secCountdown() {
     return sec("countdown", t().countT, `
-      <div class="count reveal" id="count" role="timer" aria-live="off"></div>
-      <p class="count-to reveal" id="countTo" lang="${lang}"></p>`);
+      <div class="count reveal" id="count" role="timer" aria-live="off"></div>`);
   }
 
   function secVenue() {
@@ -1309,7 +1308,6 @@
         ${has(data.signoff) ? `<p class="so-text" lang="${lang}">${esc(nb(pick(data.signoff)))}</p>` : ""}
         ${logoMark("so-logo")}
         <p class="so-names" lang="${lang}">${names}</p>
-        <a class="made" href="https://saath.studio" target="_blank" rel="noopener"><span lang="${lang}">${esc(u.made)}</span><img src="${ROOT}mark.svg" alt="" width="16" height="16">saath.studio</a>
       </footer>`;
     document.documentElement.style.setProperty("--arch", `url("${archMask()}")`);
     drawArch();
@@ -1473,7 +1471,7 @@
   function startCount() {
     clearInterval(countTimer);
     const el = $("#count"), f = countTarget(), target = new Date(f.start);
-    $("#countTo").textContent = t().countTo(pick(f.name), fmt(f.start, { weekday: "long", day: "numeric", month: "long" }));
+    if ($("#countTo")) $("#countTo").textContent = t().countTo(pick(f.name), fmt(f.start, { weekday: "long", day: "numeric", month: "long" }));
     const tick = () => {
       const ms = target - Date.now();
       if (ms <= 0) { el.innerHTML = ""; return clearInterval(countTimer); }
