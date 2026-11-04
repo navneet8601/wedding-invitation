@@ -1449,10 +1449,11 @@
     const check = () => cleared() > 0.45 && done();
     btn.addEventListener("pointerdown", (e) => { if (revealed.has(i)) return; down = true; last = pt(e); try { btn.setPointerCapture(e.pointerId); } catch {} scratch(last, last); });
     btn.addEventListener("pointermove", (e) => { if (!down) return; const p = pt(e); scratch(last, p); last = p; if (++moves % 8 === 0) check(); });
-    const up = () => { if (down) { down = false; check(); } };
+    // One tap or one scratch stroke is enough: the card opens as soon as the finger (or mouse) lifts.
+    const up = () => { if (down) { down = false; done(); } };
     btn.addEventListener("pointerup", up);
     btn.addEventListener("pointercancel", up);
-    btn.addEventListener("click", (e) => e.detail === 0 && done());
+    btn.addEventListener("click", () => done());
     function done() {
       if (revealed.has(i)) return;
       revealed.add(i);
