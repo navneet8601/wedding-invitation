@@ -205,6 +205,9 @@
     }).sort((a, b) => a.sure - b.sure || (b.e.id === b.key) - (a.e.id === a.key) || new Date(a.e.start) - new Date(b.e.start));
     const out = new Map(), used = new Set();
     const give = (a, k) => { out.set(a.e, fn[k]); used.add(k); };
+    // A function may name an image file of its own ("./images/…webp"): it shows that, and leaves the
+    // theme's paintings to the others.
+    for (const a of asks) if (typeof a.e.art === "string" && /\.(webp|png|jpe?g|svg)$/i.test(a.e.art)) out.set(a.e, a.e.art);
     for (const a of asks) if (typeof a.e.art === "string" && Object.hasOwn(fn, a.e.art)) give(a, a.e.art);
     for (const a of asks) if (!out.has(a.e) && fn[a.key] && !used.has(a.key)) give(a, a.key);
     for (const a of asks) {
@@ -1112,7 +1115,7 @@
           const slot = SLOT_FOR(e);
           const mood = theme.moods?.[slot]?.accent ? ink(theme.moods[slot].accent) : null;
           const file = arts.get(e);
-          const img = file ? base + file : null;
+          const img = file ? (file.includes("/") ? file : base + file) : null;
           const i = data.events.indexOf(e);
           return `<article class="tl"${mood ? ` style="--mood:${esc(mood)}"` : ""}>
             ${img ? `<img class="art reveal" src="${img}" alt="" loading="lazy" decoding="async">` : `<span class="art glyph reveal" aria-hidden="true">${ORN}</span>`}
